@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.simplilearn">
+	<class name="EProduct" table="eproduct">
+		<id name="ID" type="long" column="ID">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" type="string" column="NAME"></property>
+		<property name="price" type="big_decimal" column="PRICE"></property>
+		<property name="dateAdded" type="timestamp" column="DATE_ADDED"></property>
+		
+		
+		<component name="parts" class="com.simplilearn.ProductParts">
+		<property name="hdd" column="parts_hdd" type="string"></property>
+		<property name="cpu" column="parts_cpu" type="string"></property>
+		<property name="ram" column="parts_ram" type="string"></property>
+		</component>
+	</class>
+
+</hibernate-mapping>
